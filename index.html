@@ -2,68 +2,32 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <title>استمارة التسجيل زهور الياسمين</title>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <title>استمارة التسجيل</title>
   <style>
-    body { font-family: 'Arial', sans-serif; text-align: right; margin: 20px; }
-    label { display: block; margin-top: 10px; }
-    input, textarea, select { width: 100%; padding: 5px; margin-top: 5px; }
-    button { margin-top: 20px; padding: 10px 20px; }
-    .header { text-align: center; margin-bottom: 20px; }
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      background-color: #f9f9f9;
+    }
+    .header-banner {
+      margin: 20px auto;
+      max-width: 100%;
+    }
+    .header-banner img {
+      max-width: 90%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
   </style>
 </head>
 <body>
-  <div class="header">
-    <h2>🌸 مركز زهور الياسمين لضيافة الأطفال 🌸</h2>
-    <h3>استمارة التسجيل</h3>
+
+  <div class="header-banner">
+    <img src="banner.png" alt="زهور الياسمين لضيافة الأطفال">
   </div>
 
-  <form id="regForm">
-    <label>اسم الطفل:
-      <input type="text" id="childName">
-    </label>
-    <label>تاريخ الميلاد:
-      <input type="text" id="dob">
-    </label>
-    <label>اسم ولي الأمر:
-      <input type="text" id="parentName">
-    </label>
-    <label>رقم الجوال:
-      <input type="text" id="phone">
-    </label>
-    <label>هل توافق على مشاركة صور طفلك على وسائل التواصل؟
-      <select id="photoConsent">
-        <option>نعم</option>
-        <option>لا</option>
-      </select>
-    </label>
-    <button type="button" onclick="generatePDF()">تحميل الاستمارة كملف PDF</button>
-  </form>
-
-  <script>
-    function generatePDF() {
-      const {{ jsPDF }} = window.jspdf;
-      const doc = new jsPDF();
-
-      const childName = document.getElementById('childName').value;
-      const dob = document.getElementById('dob').value;
-      const parentName = document.getElementById('parentName').value;
-      const phone = document.getElementById('phone').value;
-      const photoConsent = document.getElementById('photoConsent').value;
-
-      doc.setFont("Arial");
-      doc.setFontSize(14);
-      doc.text("🌸 مركز زهور الياسمين لضيافة الأطفال 🌸", 105, 20, { align: "center" });
-      doc.text("استمارة التسجيل", 105, 30, { align: "center" });
-
-      doc.text(`اسم الطفل: ${childName}`, 20, 50);
-      doc.text(`تاريخ الميلاد: ${dob}`, 20, 60);
-      doc.text(`اسم ولي الأمر: ${parentName}`, 20, 70);
-      doc.text(`رقم الجوال: ${phone}`, 20, 80);
-      doc.text(`الموافقة على مشاركة الصور: ${photoConsent}`, 20, 90);
-
-      doc.save("استمارة-زهور-الياسمين.pdf");
-    }
-  </script>
 </body>
 </html>
